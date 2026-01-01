@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>X-Wing: Battle for the Galaxy</title>
+  </head>
+  <body>
+    <canvas class="webgl"></canvas>
+
+    <!-- HUD -->
+    <div id="hud">
+      <div class="hud-top">
+        <div class="hud-item">
+          <span class="label">HEALTH</span>
+          <div class="health-bar">
+            <div class="health-fill" id="healthBar"></div>
+          </div>
+        </div>
+        <div class="hud-item">
+          <span class="label">SCORE</span>
+          <span class="value" id="score">0</span>
+        </div>
+        <div class="hud-item">
+          <span class="label">TIE KILLS</span>
+          <span class="value" id="kills">0 / 100</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Game Over Screen -->
+    <div id="gameOver" class="screen hidden">
+      <h1>GAME OVER</h1>
+      <p>Final Score: <span id="finalScore">0</span></p>
+      <p>TIE Fighters Destroyed: <span id="finalKills">0</span></p>
+      <button id="restartBtn">RESTART MISSION</button>
+    </div>
+
+    <!-- Victory Screen -->
+    <div id="victory" class="screen hidden">
+      <h1>VICTORY!</h1>
+      <p>The Star Destroyer has been defeated!</p>
+      <p>Final Score: <span id="victoryScore">0</span></p>
+      <button id="victoryRestartBtn">NEW MISSION</button>
+    </div>
+
+    <!-- Start Screen -->
+    <div id="startScreen" class="screen">
+      <h1>X-WING: BATTLE FOR THE GALAXY</h1>
+      <div class="mission-brief">
+        <p><strong>MISSION BRIEFING:</strong></p>
+        <p>Destroy 100 TIE Fighters to expose the Star Destroyer</p>
+        <p>The Star Destroyer requires 10 direct hits to destroy</p>
+        <p><br><strong>CONTROLS:</strong></p>
+        <p>← → Arrow Keys or A/D - Move</p>
+        <p>SPACE - Fire Lasers</p>
+      </div>
+      <button id="startBtn">START MISSION</button>
+    </div>
+
+    <!-- Boss Alert -->
+    <div id="bossAlert" class="hidden">
+      <h2>⚠ STAR DESTROYER INCOMING ⚠</h2>
+    </div>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
