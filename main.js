@@ -354,6 +354,70 @@ window.addEventListener('keyup', (e) => {
   keys[e.key] = false;
 });
 
+// ===== MOBILE CONTROLS =====
+const leftBtn = document.getElementById('leftBtn');
+const rightBtn = document.getElementById('rightBtn');
+const shootBtn = document.getElementById('shootBtn');
+
+// Left button
+leftBtn.addEventListener('touchstart', (e) => {
+  e.preventDefault();
+  keys['ArrowLeft'] = true;
+});
+
+leftBtn.addEventListener('touchend', (e) => {
+  e.preventDefault();
+  keys['ArrowLeft'] = false;
+});
+
+// Right button
+rightBtn.addEventListener('touchstart', (e) => {
+  e.preventDefault();
+  keys['ArrowRight'] = true;
+});
+
+rightBtn.addEventListener('touchend', (e) => {
+  e.preventDefault();
+  keys['ArrowRight'] = false;
+});
+
+// Shoot button
+shootBtn.addEventListener('touchstart', (e) => {
+  e.preventDefault();
+  if (gameState.isPlaying) {
+    shootLaser();
+  }
+});
+
+// Also support mouse events for testing
+leftBtn.addEventListener('mousedown', (e) => {
+  e.preventDefault();
+  keys['ArrowLeft'] = true;
+});
+
+leftBtn.addEventListener('mouseup', (e) => {
+  e.preventDefault();
+  keys['ArrowLeft'] = false;
+});
+
+rightBtn.addEventListener('mousedown', (e) => {
+  e.preventDefault();
+  keys['ArrowRight'] = true;
+});
+
+rightBtn.addEventListener('mouseup', (e) => {
+  e.preventDefault();
+  keys['ArrowRight'] = false;
+});
+
+shootBtn.addEventListener('mousedown', (e) => {
+  e.preventDefault();
+  if (gameState.isPlaying) {
+    shootLaser();
+  }
+});
+
+
 let lastShot = 0;
 function shootLaser() {
   const now = Date.now();
